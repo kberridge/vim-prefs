@@ -1,0 +1,69 @@
+snippet fileheader
+	#region Copyright `strftime("%Y")`, Pointe Blank Solutions
+	/// <copyright>Copyright `strftime("%Y")`, Pointe Blank Solutions</copyright>
+	/// <developer>Kevin Berridge</developer>
+	/// <created>`strftime("%d/%m/%Y")`</created>
+	#endregion
+
+snippet classmap
+	public class ${1:ClassToMap}Map : ClassMap<$1>
+	{
+		public $1Map()
+		{
+			${2}
+		}
+	}
+
+snippet spec
+	[Subject( ${1} )]
+	public class when_${2}
+	{
+		Establish context = () =>
+		{
+		};
+
+		Because of = () =>
+		{
+		};
+
+		It should_${3} = () =>
+		{
+		};
+	}
+
+snippet try Try with Catch block
+	try
+	{
+		${1}
+	}
+	catch
+	{
+	}
+snippet try Try with Catch and Finally block
+	try
+	{
+		${1}
+	}
+	catch
+	{
+	}
+	finally
+	{
+	}
+snippet try Try with Finally block
+	try
+	{
+		${1}
+	}
+	finally
+	{
+	}
+
+snippet region
+	#region ${1}
+	#endregion
+
+snippet ///
+	///<summary>
+	///${1}
+	///</summary>
