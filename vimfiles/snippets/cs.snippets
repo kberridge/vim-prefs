@@ -14,22 +14,26 @@ snippet classmap
 		}
 	}
 
-snippet spec
+snippet specclass
 	[Subject( ${1} )]
 	public class when_${2}
 	{
-		Establish context = () =>
-		{
-		};
-
-		Because of = () =>
-		{
-		};
-
-		It should_${3} = () =>
-		{
-		};
 	}
+
+snippet specit
+	It should_${1} = () =>
+	{
+	};
+
+snippet specestablish
+	Establish context = () =>
+	{
+	};
+
+snippet specbecause
+	Because of = () =>
+	{
+	};
 
 snippet try Try with Catch block
 	try
