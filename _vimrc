@@ -80,6 +80,9 @@ imap <Down> <C-o>gj
 " makes 0 go to first character on the line instead of start of line
 map 0 ^
 
+" makes CTRL-<ENTER> leave insert mode (like Esc)
+inoremap <C-CR> <Esc>
+
 " Turn backup off
 set nobackup
 
