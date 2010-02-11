@@ -81,7 +81,7 @@ imap <Down> <C-o>gj
 map 0 ^
 
 " makes CTRL-<ENTER> leave insert mode (like Esc)
-inoremap <C-CR> <Esc>
+inoremap <C-space> <Esc>
 
 " Turn backup off
 set nobackup
