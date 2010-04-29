@@ -47,6 +47,9 @@ set number
 " shows matches as you type
 set incsearch
 
+" searches ignorecase if pattern is all lowercase
+set ignorecase smartcase
+
 " moves cursor to matching open symbol when you type close symbol
 set showmatch
 
@@ -88,6 +91,9 @@ map [[ ?{<CR>w99[{
 " turns on spell checking
 map <F3> :setlocal spell! spelllang=en_us<cr>
 imap <F3> <ESC>:setlocal spell! spelllang=en_us<cr>i
+
+map <F2> :NERDTreeToggle<cr>
+imap <F2> <ESC>:NERDTreeToggle<cr>i
 
 " set any autocmds (make sure they are only set once)
 if !exists("autocommands_loaded")
