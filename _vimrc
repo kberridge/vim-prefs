@@ -99,6 +99,10 @@ imap <F3> <ESC>:setlocal spell! spelllang=en_us<cr>i
 map <F2> :NERDTreeToggle<cr>
 imap <F2> <ESC>:NERDTreeToggle<cr>i
 
+" shortcut for alt-tabbing buffers
+map <M-`> :b#<cr>
+imap <M-`> :b#<cr>
+
 " set any autocmds (make sure they are only set once)
 if !exists("autocommands_loaded")
   let autocommands_loaded = 1
