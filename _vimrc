@@ -23,7 +23,7 @@ endfunction
 
 " font
 "set guifont=Courier_New:h10
-set guifont=Consolas:h13:cANSI
+set guifont=Consolas:h12:cANSI
 
 " No menus
 set guioptions-=T
@@ -136,7 +136,7 @@ function! OnlineDoc()
     return
   endif
 
-  let s:browser = "\"C:\\Program Files\\Mozilla Firefox\\firefox.exe\""
+  let s:browser = "\"C:\Users\kberridge\AppData\Local\Google\Chrome\Application\chrome.exe\""
   let s:cmd = "silent !start " . s:browser . " " . s:url
 
   execute s:cmd
