@@ -21,8 +21,9 @@ function MyDiff()
   endif
 endfunction
 
+let mapleader = ","
+
 " font
-"set guifont=Courier_New:h10
 set guifont=Consolas:h12:cANSI
 
 " No menus
@@ -74,17 +75,11 @@ colorscheme moria
 " highlight String guifg=#66FF00 gui=NONE
 " highlight Search guibg=White
 
-" make the arrow keys move within wrapped lines
-map <Up> gk
-imap <Up> <C-o>gk
-map <Down> gj
-imap <Down> <C-o>gj
-
 " makes 0 go to first character on the line instead of start of line
 map 0 ^
 
-" makes CTRL-<ENTER> leave insert mode (like Esc)
-inoremap <C-space> <Esc>
+" makes jj leave insert mode (like Esc)
+inoremap jj <Esc>
 
 " Turn backup off
 set nobackup
@@ -186,3 +181,6 @@ function! Find(name)
 endfunction
 
 command! -nargs=1 Find :call Find("<args>")
+
+" fuzzy finder mappings
+noremap <Leader>f :FufCoverageFile<CR>
