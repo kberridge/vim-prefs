@@ -78,8 +78,9 @@ colorscheme moria
 " makes 0 go to first character on the line instead of start of line
 map 0 ^
 
-" makes jj leave insert mode (like Esc)
-inoremap jj <Esc>
+" makes jk leave insert mode (like Esc)
+inoremap jk <Esc>
+inoremap kj <Esc>
 
 " Turn backup off
 set nobackup
