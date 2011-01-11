@@ -418,3 +418,9 @@ snippet tas
 	task :${2:task_name => [:dependent, :tasks]} do
 		${3}
 	end
+
+snippet ar
+	class ${1} < ActiveRecord::Base
+		set_table_name "${2}.${1}"
+		set_primary_key "Id"
+	end

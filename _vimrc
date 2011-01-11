@@ -185,3 +185,5 @@ command! -nargs=1 Find :call Find("<args>")
 
 " fuzzy finder mappings
 noremap <Leader>f :FufCoverageFile<CR>
+
+let g:ruby_path = 'C:\ruby192\bin'
