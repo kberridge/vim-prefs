@@ -23,7 +23,7 @@ set ai
 set si
 
 " shows line numbers
-set number
+set relativenumber
 
 " shows matches as you type
 set incsearch
@@ -62,10 +62,16 @@ nmap <silent> <leader>sp :setlocal spell! spelllang=en_us<cr>
 nmap <leader>nt :NERDTreeToggle<cr>
 
 " shortcut for alt-tabbing buffers
-nmap <leader>sw :b#<cr>
+nmap <leader><leader> :b#<cr>
 
 " fuzzy finder mappings
 noremap <Leader>f :FufCoverageFile<CR>
+
+" insert and delete blank lines from normal mode
+nnoremap <silent><leader>S m`:silent +g/\m^\s*$/d<CR>``:noh<CR>
+nnoremap <silent><leader>W m`:silent -g/\m^\s*$/d<CR>``:noh<CR>
+nnoremap <silent><leader>s :set paste<CR>m`o<Esc>``:set nopaste<CR>
+nnoremap <silent><leader>w :set paste<CR>m`O<Esc>``:set nopaste<CR>
 
 " set any autocmds (make sure they are only set once)
 if !exists("autocommands_loaded")
