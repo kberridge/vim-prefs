@@ -39,7 +39,9 @@ filetype plugin on
 filetype indent on
 syntax on
 
-colorscheme moria
+set background=dark
+colorscheme solarized
+"colorscheme moria
 
 " makes 0 go to first character on the line instead of start of line
 map 0 ^
