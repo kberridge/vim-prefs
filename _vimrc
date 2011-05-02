@@ -106,5 +106,14 @@ endfunction
 map <silent> <F1> :call OnlineDoc()<CR>
 imap <silent> <F1> <ESC>:call OnlineDoc()<CR>
 
+function! VsPrjAdd()
+  exec 'silent !vsprj add "'.expand('%:p').'"'
+endfunction
+map <leader>a :call VsPrjAdd()<CR>
+
+function! VSPrjRm()
+  exec 'silent !del '.expand('%:p')
+  exec 'silent !vsprj remove "'.expand('%:p').'"'
+endfunction
 
 let g:ruby_path = 'C:\ruby192\bin'
