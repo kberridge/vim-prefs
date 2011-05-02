@@ -97,8 +97,7 @@ function! OnlineDoc()
     return
   endif
 
-  let s:browser = "\"C:\Users\kberridge\AppData\Local\Google\Chrome\Application\chrome.exe\""
-  let s:cmd = "silent !start " . s:browser . " " . s:url
+  let s:cmd = "silent !start chrome ".s:url
 
   execute s:cmd
 endfunction
