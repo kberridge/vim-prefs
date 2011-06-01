@@ -115,4 +115,48 @@ function! VSPrjRm()
   exec 'silent !vsprj remove "'.expand('%:p').'"'
 endfunction
 
+" Nails web navigation
+noremap <leader>gm :FufCoverageFile Domain\Models\<cr>
+noremap <leader>gv :FufCoverageFile Website\Views\<cr>
+noremap <leader>gz :FufCoverageFile Website\ViewModels\<cr>
+noremap <leader>gc :FufCoverageFile Website\Controllers\<cr>
+noremap <leader>ga :FufCoverageFile Website\Content\<cr>
+noremap <leader>gt :FufCoverageFile Tests\<cr>
+
+" insert relative directory of file (for namespace in C#)
+"imap <leader>ns <C-R>=expand("%:h:gs?\\?\.?")<CR>
+" insert file name (for class name)
+"imap <leader>cs <C-R>=expand("%:t:r")<CR>
+
+function! CsInline()
+  " Delete variable type
+  :normal dw
+  " Copy variable name into 'a' register
+  :normal "ayiw
+  " Delete variable and equal sign
+  :normal 2dw
+  " Delete expression up to ';' into the 'b' register
+  :normal "bdt;
+  " Delete line
+  :normal dd
+  " Replace variable name with expression
+  exec ':%s/\<' . @a . '\>/' . @b . '/gc'
+endfunction
+
+map ,ri :call CsInline()<CR>
+
+" increases font size by 1pt
+nnoremap <C-Up> :let &guifont = substitute(
+  \ &guifont,
+  \ ':h\zs\d\+',
+  \ '\=eval(submatch(0)+1)',
+  \ '')<CR> :redraw<CR>
+
+" decreases font size by 1pt
+nnoremap <C-Down> :let &guifont = substitute(
+  \ &guifont,
+  \ ':h\zs\d\+',
+  \ '\=eval(submatch(0)-1)',
+  \ '')<CR> :redraw<CR>
+
 let g:ruby_path = 'C:\ruby192\bin'
