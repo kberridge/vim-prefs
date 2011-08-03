@@ -5,40 +5,7 @@ snippet fileheader
 	/// <created>`strftime("%d/%m/%Y")`</created>
 	#endregion
 
-snippet mapclass 
-	public class ${1:ClassToMap}Map : ClassMap<$1>
-	{
-		public $1Map()
-		{
-			${2}
-		}
-	}
-
-snippet mapid
-	Id( x => x.Id ).GeneratedBy.Identity();
-
-snippet maphasmany
-	HasMany( x => x.${1} )
-		.Access.ReadOnlyPropertyThroughCamelCaseField( Prefix.Underscore )
-		.Cascade.AllDeleteOrphan()
-		.Inverse();
-
-snippet mapref
-	References( x => x.${1} );
-
-snippet mapdiscrim
-	DiscriminalSubClassesOnColumn( "Type" );
-
-snippet mapaudit
-	Map( x => x.CreatedBy );
-	Map( x => x.CreatedOn );
-	Map( x => x.LstUpdatedBy );
-	Map( x => x.LstUpdatedOn );
-
-snippet map
-	Map( x => x.${1} );
-
-snippet getset
+snippet gs
 	public ${1} ${2} { get; set; }
 
 snippet try Try with Catch block
@@ -74,6 +41,32 @@ snippet region
 	#endregion
 
 snippet ///
-	///<summary>
-	///${1}
-	///</summary>
+	/// <summary>
+	/// ${1}
+	/// </summary>
+
+snippet test
+	[Test]
+	public void ${1}()
+	{
+		${2:throw new NotImplementedException();}
+	}
+
+snippet fixture
+	using System;
+	using System.Linq;
+	using System.Diagnostics;
+	using NUnit.Framework;
+	using NSubstitue;
+
+	namespace {1}
+	{
+		[TestFixture]
+		public class {2}
+		{
+			{3}
+		}
+	}
+
+snippet sub
+	Substitute.For<{1}>();

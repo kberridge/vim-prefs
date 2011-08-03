@@ -40,8 +40,8 @@ filetype indent on
 syntax on
 
 set background=dark
-colorscheme solarized
-"colorscheme moria
+"colorscheme solarized
+colorscheme moria
 
 " makes 0 go to first character on the line instead of start of line
 map 0 ^
@@ -91,7 +91,7 @@ function! OnlineDoc()
   let s:wordUnderCursor = expand("<cword>")
 
   if &ft =~ "cs"
-    let s:url = "http://social.msdn.microsoft.com/Search/en-US/?Refinement=26&Query=" . s:wordUnderCursor
+    let s:url = "http://social.msdn.microsoft.com/Search/en-US?query=" . s:wordUnderCursor
   else
     execute "help " . s:wordUnderCursor
     return
@@ -158,5 +158,8 @@ nnoremap <C-Down> :let &guifont = substitute(
   \ ':h\zs\d\+',
   \ '\=eval(submatch(0)-1)',
   \ '')<CR> :redraw<CR>
+
+" treat cshtml files as html for syntax highlighting
+au BufNewFile,BufRead *.cshtml set filetype=html
 
 let g:ruby_path = 'C:\ruby192\bin'
