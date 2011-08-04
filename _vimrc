@@ -57,6 +57,13 @@ map [[ ?{<CR>w99[{
 
 let mapleader = ","
 
+if has("win32")
+  set shell=cmd.exe
+  set shellcmdflag=/c\ powershell.exe\ -NoLogo\ -NonInteractive\ -ExecutionPolicy\ RemoteSigned
+  set shellpipe=|
+  set shellredir=>
+endif
+
 " turns on spell checking
 nmap <silent> <leader>sp :setlocal spell! spelllang=en_us<cr>
 
@@ -161,5 +168,22 @@ nnoremap <C-Down> :let &guifont = substitute(
 
 " treat cshtml files as html for syntax highlighting
 au BufNewFile,BufRead *.cshtml set filetype=html
+
+" execute shell command and dump output to scratch buffer
+function! s:ExecuteInShell(command)
+  let command = join(map(split(a:command), 'expand(v:val)'))
+  let winnr = bufwinnr('^' . command . '$')
+  silent! execute  winnr < 0 ? 'botright new ' . fnameescape(command) : winnr . 'wincmd w'
+  setlocal buftype=nowrite bufhidden=wipe nobuflisted noswapfile nowrap number
+  echo 'Executing ' . command . '...'
+  silent! execute 'silent %!'. command
+  silent! execute 'resize ' . line('$') > 15 ? 15 : line('$')
+  silent! redraw
+  silent! execute 'au BufUnload <buffer> execute bufwinnr(' . bufnr('#') . ') . ''wincmd w'''
+  silent! execute 'nnoremap <silent> <buffer> <LocalLeader>r :call <SID>ExecuteInShell(''' . command . ''')<CR>'
+  echo 'Shell command executed'
+endfunction
+command! -complete=shellcmd -nargs=+ Shell call s:ExecuteInShell(<q-args>)
+
 
 let g:ruby_path = 'C:\ruby192\bin'
