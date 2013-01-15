@@ -1,2 +1,2 @@
 cp _vimrc $home
-cp vimfiles $home\vimfiles -r
+cp vimfiles $home\vimfiles -r -force
